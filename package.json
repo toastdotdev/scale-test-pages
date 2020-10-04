@@ -1,5 +1,5 @@
 {
-  "name": "www.toast.dev",
+  "name": "src-pages-scale-test",
   "version": "1.0.0",
   "main": "index.js",
   "author": "christopherbiscardi <chris@christopherbiscardi.com> (@chrisbiscardi)",
@@ -11,11 +11,15 @@
   },
   "scripts": {
     "prepare": "breadbox --dest public/web_modules",
-    "build": "npm run prepare && npm run build:css && npm run build:site",
-    "build:css": "postcss --config postcss-config index.css -o public/styles.css",
+    "build": "npm run prepare && npm run build:site",
     "build:site": "toast incremental ."
   },
   "snowpack": {
+    "exclude": [
+      "public/**/*",
+      "toast.js",
+      "gen-pages.js"
+    ],
     "installOptions": {
       "alias": {
         "react": "preact/compat"
