@@ -2,6 +2,6 @@ import { h, Fragment } from "preact";
 
 export default (props) => (
   <div>
-    <h1>Page Number 294</h1>
+    <h1>Page Number without forms 294</h1>
   </div>
 );
