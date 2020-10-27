@@ -7,7 +7,7 @@
   "type": "module",
   "dependencies": {
     "@sector/breadbox": "^0.0.4",
-    "toast": "^0.3.11"
+    "toast": "^0.3.30"
   },
   "scripts": {
     "prepare": "breadbox --dest public/web_modules",
