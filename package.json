@@ -6,24 +6,15 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "@sector/breadbox": "^0.0.4",
-    "toast": "^0.3.30"
+    "esinstall": "^1.1.7",
+    "toast": "^0.3.44"
+  },
+  "devDependencies": {
+    "pretty-bytes": "5.6.0"
   },
   "scripts": {
-    "prepare": "breadbox --dest public/web_modules",
+    "prepare": "./postinstall.js",
     "build": "npm run prepare && npm run build:site",
     "build:site": "toast incremental ."
-  },
-  "snowpack": {
-    "exclude": [
-      "public/**/*",
-      "toast.js",
-      "gen-pages.js"
-    ],
-    "installOptions": {
-      "alias": {
-        "react": "preact/compat"
-      }
-    }
   }
 }
