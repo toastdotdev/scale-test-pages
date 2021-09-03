@@ -7,13 +7,13 @@
   "type": "module",
   "dependencies": {
     "esinstall": "^1.1.7",
-    "toast": "^0.3.44"
+    "toast": "^0.3.46"
   },
   "devDependencies": {
     "pretty-bytes": "5.6.0"
   },
   "scripts": {
-    "prepare": "./postinstall.js",
+    "prepare": "node ./postinstall.js",
     "build": "npm run prepare && npm run build:site",
     "build:site": "toast incremental ."
   }

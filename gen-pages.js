@@ -12,11 +12,24 @@ export default (props) => (
 main();
 
 async function main() {
-  await Promise.all(
-    new Array(10001)
-      .fill(undefined)
-      .map((_, i) =>
-        fs.writeFile(`./src/pages/page-${i}.js`, template(i), "utf-8")
-      )
-  );
+  const PAGE_QUANTITY = process.env.PAGE_QUANTITY || 10000;
+  const INCREMENT =
+    PAGE_QUANTITY *
+    (PAGE_QUANTITY * 0.5 < 20000
+      ? 0.5
+      : PAGE_QUANTITY * 0.25 < 20000
+      ? 0.25
+      : 0.125);
+
+  for (let n = 0; n < PAGE_QUANTITY; n += INCREMENT) {
+    console.log(n);
+    await Promise.all(
+      new Array(INCREMENT + 1)
+        .fill(undefined)
+        .map((_, i) =>
+          fs.writeFile(`./src/pages/page-${i + n}.js`, template(i + n), "utf-8")
+        )
+    );
+  }
+  console.log(PAGE_QUANTITY);
 }
